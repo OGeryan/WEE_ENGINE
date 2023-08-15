@@ -1,0 +1,208 @@
+							
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<style>
+    .ARIAL
+    {
+    	font-family: Arial;
+    }
+    .TITLE
+    {
+    	color: white;
+        font-variant: small-caps;
+        font-size: 3em;
+    }
+    .SMALL-TITLE
+    {
+    	color: white;
+        font-variant: small-caps;
+        text-align: center;
+        font-size: 1em;
+    }
+    .TINY-TITLE
+    {
+    	color: white;
+    }
+    
+    .C-DEFBLUE
+    {
+    	background-color: rgba(29,42,53,255);
+    }
+    .C-DARKBLUE
+    {
+        background-color: rgba(21,32,43,255);
+    }
+    .C-LIGHTBLUE
+    {
+    	background-color: rgba(56,68,77,255);
+    }
+    .C-WHITE
+    {
+        background-color: white;
+    }
+</style>
+<body class="C-DEFBLUE">
+<h1 class="ARIAL TITLE">All methods</h1>
+<ol class="ARIAL TINY-TITLE">
+    <li> [Set:{variable}:{value}] -- Sets the variable to the amount</li>
+    <li> [Draw_Move:{Point X}, {Point Y}] -- Moves the beginning of a line to the target points</li>
+    <li> [Draw_Line:{Point X}, {Point Y}] -- Draws a line ending in the points, and starting in the moved position(Draw_Move)</li>
+    <li> [Draw_Color:{R},{G},{B},{A}] -- Sets the render color (rgba format)</li>
+    <li> [Draw_Render] -- Renders everything</li>
+    <li> [Draw_Clear] -- Clears the screen</li>
+    <li> [Load_Image:{"Source"}:{Id}] -- Loads an image from the web, that can be later drawn, and saves an Id for it.</li>
+    <li> [Draw_Image:{Loaded image ID}, {Loc. X}, {Loc. Y}, {Size X}, {Size Y}] -- Draws an image from the loaded image Id collection</li>
+    <li> [Play_Audio(/Play_Sound):{"Source"}] -- Plays an audio from the web</li>
+    <li> [Stop_Audio(/Stop Sound)] -- Stops all audio</li>
+    <li> [Draw_Rect:{Loc. X}, {Loc. Y}, {Size X}, {Size Y}] -- Draws a scaleable Rectangle</li>
+    <li> [Draw_FillRect:{Loc. X}, {Loc. Y}, {Size X}, {Size Y}] -- Draws a scaleable Filled Rectangle</li>
+    <li> [Draw_Circle:{Loc. X}, {Loc. Y}, {Scale}] -- Draws a scaleable Circle</li>
+    <li> [Draw_FillCircle:{Loc. X}, {Loc. Y}, {Scale} -- Draws a scaleable Filled Circle</li>
+    <li> [Draw_Text:{"Text"}, {Loc. X}, {Loc. Y}] -- Writes text</li>
+    <li> [Draw_Data:{Variable}, {Loc. X}, {Loc. Y}] -- Outputs variable data</li>
+    <li> [If:{Condition}:{{Method}}] -- An if statement, that can excecute a method, if true -- Example: If: 10 > 5: {Alert};</li>
+    <li> [Alert] -- Debug Alert Option</li>
+    <li> [Keypress:{Variable}] -- Sets the variable to the last key press</li>
+    <li> [Mouse_X:{Variable}] -- Sets the variable to the x axis of the mouse</li>
+    <li> [Mouse_Y:{Variable}] -- Sets the variable to the y axis of the mouse</li>
+    <li> [LocalMouse_X:{Variable}] -- Sets the variable to the x axis of the mouse local to the canvas</li>
+    <li> [LocalMouse_Y:{Variable}] -- Sets the variable to the y axis of the mouse local to the canvas</li>
+    <li> [Event:{"Event Name"}] -- Executes an event by it's name</li>
+    <li> [Event_Id:{Event ID}] -- Executes an event by it's ID</li>
+    <li> [Random:{Variable}, {Max} -- Sets the variable to a random number between 0, and Max</li>
+    
+    
+    
+</ol>
+<br>
+<h1 class="ARIAL TITLE">Syntax</h1>
+<a class="ARIAL TINY-TITLE">[Command] [Specification - :] [Parameter - ,] [Seperator - ;] </a>
+<br>
+<h1 class="ARIAL TITLE">Fullscreen</h1>
+<a class="ARIAL TINY-TITLE">Add "?fullscreen=true" to your URL</a>
+<br>
+<h1 class="ARIAL TITLE">Maths and variables</h1>
+<a class="ARIAL TINY-TITLE">While the engine is not perfect, it allows simple mathematics (+, -, *, /) and supports the use of variables. To set a variable, use "Set:{VARIABLE HERE!}:{TARGET VALUE!}". These values can include a singular mathematical expression, such as "...:1 + 1", or "...:var - 5".
+</a>
+<br>
+<h1 class="ARIAL TITLE">Conditions</h1>
+<a class="ARIAL TINY-TITLE">WEE Engine allows conditions to be used. An 
+if statement is made up like this: "If: {CONDITION, SYNTAX EXPLAINED LATER}: {EVENT TO EXECUTE}". A CONDITION can include ">", "<", "==", or "!=". Simply nested if statements can throw JS errors, so I advise using EVENTS, to build nested if statements.
+</a>
+<br>
+<h1 class="ARIAL TITLE">Keycodes</h1>
+<a class="ARIAL TINY-TITLE">
+<ul>
+<li>backspace	8</li>
+<li>tab	9</li>
+<li>enter	13</li>
+<li>shift	16</li>
+<li>ctrl	17</li>
+<li>alt	18</li>
+<li>pause/break	19</li>
+<li>caps lock	20</li>
+<li>escape	27</li>
+<li>page up	33</li>
+<li>Space	32</li>
+<li>page down	34</li>
+<li>end	35</li>
+<li>home	36</li>
+<li>arrow left	37</li>
+<li>arrow up	38</li>
+<li>arrow right	39</li>
+<li>arrow down	40</li>
+<li>print screen	44</li>
+<li>insert	45</li>
+<li>delete	46</li>
+<li>0	48</li>
+<li>1	49</li>
+<li>2	50</li>
+<li>3	51</li>
+<li>4	52</li>
+<li>5	53</li>
+<li>6	54</li>
+<li>7	55</li>
+<li>8	56</li>
+<li>9	57</li>
+<li>a	65</li>
+<li>b	66</li>
+<li>c	67</li>
+<li>d	68</li>
+<li>e	69</li>
+<li>f	70</li>
+<li>g	71</li>
+<li>h	72</li>
+<li>i	73</li>
+<li>j	74</li>
+<li>k	75</li>
+<li>l	76</li>
+<li>m	77</li>
+<li>n	78</li>
+<li>o	79</li>
+<li>p	80</li>
+<li>q	81</li>
+<li>r	82</li>
+<li>s	83</li>
+<li>t	84</li>
+<li>u	85</li>
+<li>v	86</li>
+<li>w	87</li>
+<li>x	88</li>
+<li>y	89</li>
+<li>z	90</li>
+<li>left window key	91</li>
+<li>right window key	92</li>
+<li>select key	93</li>
+<li>numpad 0	96</li>
+<li>numpad 1	97</li>
+<li>numpad 2	98</li>
+<li>numpad 3	99</li>
+<li>numpad 4	100</li>
+<li>numpad 5	101</li>
+<li>numpad 6	102</li>
+<li>numpad 7	103</li>
+<li>numpad 8	104</li>
+<li>numpad 9	105</li>
+<li>multiply	106</li>
+<li>add	107</li>
+<li>subtract	109</li>
+<li>decimal point	110</li>
+<li>divide	111</li>
+<li>f1	112</li>
+<li>f2	113</li>
+<li>f3	114</li>
+<li>f4	115</li>
+<li>f5	116</li>
+<li>f6	117</li>
+<li>f7	118</li>
+<li>f8	119</li>
+<li>f9	120</li>
+<li>f10	121</li>
+<li>f11	122</li>
+<li>f12	123</li>
+<li>num lock	144</li>
+<li>scroll lock	145</li>
+<li>My Computer (multimedia keyboard)	182</li>
+<li>My Calculator (multimedia keyboard)	183</li>
+<li>semi-colon	186</li>
+<li>equal sign	187</li>
+<li>comma	188</li>
+<li>dash	189</li>
+<li>period	190</li>
+<li>forward slash	191</li>
+<li>open bracket	219</li>
+<li>back slash	220</li>
+<li>close bracket	221</li>
+<li>single quote	222</li>
+</ul>
+</a>
+</body>
+</html>	
+		
+		
+		
+		
+		
+		
+	
