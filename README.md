@@ -9,3 +9,6 @@ I just did. it took a few days... of straight work... but it's arguably finished
 
 # why is it called the wee engine
 because it's the Worst Engine Ever.
+
+# example project
+https://geryan.hu/WEE/WEEPROJ_manshoot.json - DOWNLOAD->AS A JSON FILE IMPORT IT->IT SHOULD WORK.
