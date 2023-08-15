@@ -2,7 +2,7 @@
 the wee engine is an... arguably cool browser based game engine.
 
 # how it works
-read the docs. ...at [geryan.hu\](https://geryan.hu/WEE/WEE_docs.html)https://geryan.hu/WEE/WEE_docs.html
+read the docs. ...at https://geryan.hu/WEE/WEE_docs.html
 
 # how did you make this
 I just did. it took a few days... of straight work... but it's arguably finished.
