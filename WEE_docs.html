@@ -11,7 +11,9 @@
     {
     	color: white;
         font-variant: small-caps;
-        font-size: 3em;
+        font-size: 4em;
+        text-align: center;        
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
     }
     .SMALL-TITLE
     {
@@ -20,9 +22,16 @@
         text-align: center;
         font-size: 1em;
     }
+    
     .TINY-TITLE
     {
     	color: white;
+    }
+    
+    .B-RADIUS
+    {
+        border-radius: 10px;
+        padding: 7px;
     }
     
     .C-DEFBLUE
@@ -43,15 +52,15 @@
     }
 </style>
 <body class="C-DEFBLUE">
-<h1 class="ARIAL TITLE">All methods</h1>
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">ALL METHODS</h1>
 <ol class="ARIAL TINY-TITLE">
-    <li> [Set:{variable}:{value}] -- Sets the variable to the amount</li>
+    <li> [Set:{Variable}:{Value}] -- Sets the variable to the amount</li>
     <li> [Draw_Move:{Point X}, {Point Y}] -- Moves the beginning of a line to the target points</li>
     <li> [Draw_Line:{Point X}, {Point Y}] -- Draws a line ending in the points, and starting in the moved position(Draw_Move)</li>
     <li> [Draw_Color:{R},{G},{B},{A}] -- Sets the render color (rgba format)</li>
     <li> [Draw_Render] -- Renders everything</li>
     <li> [Draw_Clear] -- Clears the screen</li>
-    <li> [Load_Image:{"Source"}:{Id}] -- Loads an image from the web, that can be later drawn, and saves an Id for it.</li>
+    <li> [Load_Image:{"Source"},{Id}] -- Loads an image from the web, that can be later drawn, and saves an Id for it.</li>
     <li> [Draw_Image:{Loaded image ID}, {Loc. X}, {Loc. Y}, {Size X}, {Size Y}] -- Draws an image from the loaded image Id collection</li>
     <li> [Play_Audio(/Play_Sound):{"Source"}] -- Plays an audio from the web</li>
     <li> [Stop_Audio(/Stop Sound)] -- Stops all audio</li>
@@ -61,7 +70,7 @@
     <li> [Draw_FillCircle:{Loc. X}, {Loc. Y}, {Scale} -- Draws a scaleable Filled Circle</li>
     <li> [Draw_Text:{"Text"}, {Loc. X}, {Loc. Y}] -- Writes text</li>
     <li> [Draw_Data:{Variable}, {Loc. X}, {Loc. Y}] -- Outputs variable data</li>
-    <li> [If:{Condition}:{{Method}}] -- An if statement, that can excecute a method, if true -- Example: If: 10 > 5: {Alert};</li>
+    <li> [If:{Condition}:{{Method}}] -- An if statement, that can excecute a method, if true -- Example: If: 10 > 5: {Alert}; -- yes, you gotta use brackets.</li>
     <li> [Alert] -- Debug Alert Option</li>
     <li> [Keypress:{Variable}] -- Sets the variable to the last key press</li>
     <li> [Mouse_X:{Variable}] -- Sets the variable to the x axis of the mouse</li>
@@ -71,28 +80,31 @@
     <li> [Event:{"Event Name"}] -- Executes an event by it's name</li>
     <li> [Event_Id:{Event ID}] -- Executes an event by it's ID</li>
     <li> [Random:{Variable}, {Max} -- Sets the variable to a random number between 0, and Max</li>
+    <li> [Round:{Variable} -- Rounds the variable</li>
+    <li> [For:{Value}:{Action} -- Repeats something <i>for</i> a certain amount of times</li>
     
     
     
 </ol>
 <br>
-<h1 class="ARIAL TITLE">Syntax</h1>
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">SYNTAX</h1>
 <a class="ARIAL TINY-TITLE">[Command] [Specification - :] [Parameter - ,] [Seperator - ;] </a>
 <br>
-<h1 class="ARIAL TITLE">Fullscreen</h1>
-<a class="ARIAL TINY-TITLE">Add "?fullscreen=true" to your URL</a>
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">FULLSCREEN</h1>
+<a class="ARIAL TINY-TITLE">Add "?fullscreen=true" to your URL. Oh, and don't forget to compile your project before doing it!!!</a>
 <br>
-<h1 class="ARIAL TITLE">Maths and variables</h1>
-<a class="ARIAL TINY-TITLE">While the engine is not perfect, it allows simple mathematics (+, -, *, /) and supports the use of variables. To set a variable, use "Set:{VARIABLE HERE!}:{TARGET VALUE!}". These values can include a singular mathematical expression, such as "...:1 + 1", or "...:var - 5".
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">MATHS AND VARIABLES</h1>
+<a class="ARIAL TINY-TITLE">While this particular engine isn't perfect, it allows simple mathematics (+, -, *, /) and supports the use of variables. To set a variable, use "Set:{VARIABLE HERE}:{TARGET VALUE}". These values can include mathematical expressions, such as "...:1 + 1", or "...:var - 5".
 </a>
 <br>
-<h1 class="ARIAL TITLE">Conditions</h1>
-<a class="ARIAL TINY-TITLE">WEE Engine allows conditions to be used. An 
-if statement is made up like this: "If: {CONDITION, SYNTAX EXPLAINED LATER}: {EVENT TO EXECUTE}". A CONDITION can include ">", "<", "==", or "!=". Simply nested if statements can throw JS errors, so I advise using EVENTS, to build nested if statements.
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">CONDITIONS</h1>
+<a class="ARIAL TINY-TITLE">WEE Engine allows conditions to be used. That's pretty cool. An 
+if statement is made up like such: "If: {CONDITION}: {{EVENT TO EXECUTE}}". A CONDITION can include ">", "<", "==", or "!=". Simply nested if statements can throw JS errors, so I advise using EVENTS to build nested if statements. Oh, and use brackets.
 </a>
 <br>
-<h1 class="ARIAL TITLE">Keycodes</h1>
+<h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS">KEYCODES</h1>
 <a class="ARIAL TINY-TITLE">
+    Here's a list of keycodes. Might come useful...!
 <ul>
 <li>backspace	8</li>
 <li>tab	9</li>

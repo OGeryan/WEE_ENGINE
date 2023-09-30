@@ -2,6 +2,7 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script src="https:\\geryan.hu\randy.js"> </script>
 <style>
     * {
         box-sizing: border-box;
@@ -13,16 +14,25 @@
 
     .TITLE {
         color: white;
-        font-variant: small-caps;
         text-align: center;
         font-size: 4em;
+    }
+    
+    .OUTLINE
+    {
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: black;
+    }
+    
+    .BETTER-OUTLINE
+    {
+        text-shadow: -1.25px -1.25px 0 #000, 1.25px -1.25px 0 #000, -1.25px 1.25px 0 #000, 1.25px 1.25px 0 #000;
     }
 
     .SMALL-TITLE {
         color: white;
-        font-variant: small-caps;
         text-align: center;
-        font-size: 1em;
+        font-size: 1.3em;
     }
 
     .TINY-TITLE {
@@ -76,6 +86,16 @@
         margin: 5px;
         margin-right: 10px;
         text-align: right;
+        font-size: 20px;
+    }
+    
+    .PLACEMENT-BOTTOM-LEFT {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: 5px;
+        margin-left: 10px;
+        text-align: left;
         font-size: 20px;
     }
 
@@ -135,14 +155,15 @@
 <body class="C-DEFBLUE LIMIT-SCALE">
     <a class="PLACEMENT-TOP-RIGHT TINY-TITLE ARIAL" href="WEE_docs.html" target="_blank"> Documentation </a>
     <a class="PLACEMENT-TOP-LEFT TINY-TITLE ARIAL" href="https://geryan.hu"> Geryan.hu </a>
-    <h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS B-PADDING">worst engine ever</h1>
-    <p class="ARIAL SMALL-TITLE C-LIGHTBLUE B-RADIUS B-PADDING">Made by <b>geryan</b></p>
+    <a class="PLACEMENT-BOTTOM-LEFT TINY-TITLE ARIAL" href="javascript:RANDOMIZE_PAGE()">I'm feeling randy.</a>
+    <h1 class="ARIAL TITLE C-LIGHTBLUE B-RADIUS B-PADDING BETTER-OUTLINE">Worst Engine Ever</h1>
+    <p class="ARIAL SMALL-TITLE C-LIGHTBLUE B-RADIUS B-PADDING BETTER-OUTLINE">Made by <b>geryan</b></p>
     <div class="ROW">
         <div class="COLUMN C-LIGHTBLUE B-BOTTOMRADIUS">
             <div style="padding: 10px;">
-                <button onclick="ENG_NEW_VARIABLE()">New Variable</button>
-                <button onclick="ENG_REMOVE_VARIABLE()">Remove Variable</button>
-                <button onclick="ENG_SET_VARIABLE()">Set Variable</button>
+                <button class="ARIAL" onclick="ENG_NEW_VARIABLE()">New Variable</button>
+                <button class="ARIAL" onclick="ENG_REMOVE_VARIABLE()">Remove Variable</button>
+                <button class="ARIAL" onclick="ENG_SET_VARIABLE()">Set Variable</button>
             </div>
             <select name="Variables" id="ENG-VARIABLES" class="B-BOTTOMRADIUS" style="overflow-y: auto;" multiple="false">
 
@@ -152,7 +173,7 @@
             <div style="padding: 10px;">
                 <button onclick="BEGINENG()" class="ARIAL TC-BLACK TINY-TITLE" id="BEGINBUTTON">Begin Engine</button>
                 <button onclick="STOPENG()" class="ARIAL TC-BLACK TINY-TITLE">Stop Engine</button>
-                <button onclick="COMPILE()" class="ARIAL TC-BLACK TINY-TITLE" style="margin-left: 50px;">Compile</button>
+                <button onclick="COMPILE()" class="ARIAL TC-BLACK TINY-TITLE" style="float:right;">Compile</button>
                 <a id="COMPILE-DOWNLOAD"></a>
             </div>
             <canvas id="ENG-CANVAS" class="C-WHITE">
@@ -161,17 +182,17 @@
         </div>
         <div class="COLUMN C-LIGHTBLUE B-BOTTOMRADIUS ARIAL">
             <div style="padding: 10px;">
-                <select name="Root" id="ENG-ROOT" style="width: 200px" onchange="ENG_ROOT_CHANGE()">
-                    <option title="The code will be excecuted per tick" value="ON:TICK">ON:TICK</option>
-                    <option title="The code will be excecuted when the engine is started" value="ON:BEGIN">ON:BEGIN</option>
-                    <option title="The code will be excecuted when a key is pressed" value="ON:KEYPRESS">ON:KEYPRESS</option>
-                    <option title="The code will be excecuted when a key is released" value="ON:KEYUP">ON:KEYUP</option>
-                    <option title="The code will be excecuted when client left clicks" value="ON:MOUSECLICK">ON:MOUSECLICK</option>
+                <select name="Root" class="ARIAL" id="ENG-ROOT" style="width: 200px" onchange="ENG_ROOT_CHANGE()">
+                    <option title="The code will be executed per tick" value="ON:TICK">ON:TICK</option>
+                    <option title="The code will be executed when the engine is started" value="ON:BEGIN">ON:BEGIN</option>
+                    <option title="The code will be executed when a key is pressed" value="ON:KEYPRESS">ON:KEYPRESS</option>
+                    <option title="The code will be executed when a key is released" value="ON:KEYUP">ON:KEYUP</option>
+                    <option title="The code will be executed when the client left clicks" value="ON:MOUSECLICK">ON:MOUSECLICK</option>
                 </select>
                 <span class="TINY-TITLE">TICK DELAY: <span> <input type="number" value="50" id="ENG-TICKRATE">
             </div>
             <textarea name="Functions" id="ENG-FUNCTIONS" class="B-BOTTOMRADIUS ARIAL" spellcheck="false" style="resize: none" onkeyup="ENG_TRANSLATE_CODE()"></textarea>
-            <span class="TINY-TITLE ARIAL">EVENT ID</span> <input min="0" value="0" type="number" onkeyup="ENG_EVENT_CHANGE(-1)" onchange="ENG_EVENT_CHANGE(-1)" id="ENG-EVENTID"> <span class="TINY-TITLE ARIAL">EVENT NAME</span> <input id="ENG-EVENTNAME" min="0" type="text" onkeyup="ENG_TRANSLATE_EVENT()" value="EVENT">
+            <span class="TINY-TITLE ARIAL">EVENT ID</span> <input min="0" class="ARIAL" value="0" type="number" onkeyup="ENG_EVENT_CHANGE(-1)" onchange="ENG_EVENT_CHANGE(-1)" id="ENG-EVENTID"> <span class="TINY-TITLE ARIAL">EVENT NAME</span> <input id="ENG-EVENTNAME" min="0" type="text" onkeyup="ENG_TRANSLATE_EVENT()" value="EVENT">
             <textarea name="Execs" id="ENG-EXECS" class="B-BOTTOMRADIUS ARIAL" spellcheck="false" style="resize: none" onkeyup="ENG_TRANSLATE_EVENT()"> </textarea>
         </div>
         <div class="C-LIGHTBLUE B-RADIUS B-PADDING PLACEMENT-BOTTOM TINY-TITLE ARIAL" style="z-index: 11;">
@@ -191,8 +212,12 @@
     var LOADED_IMG_LIST = [];
 
     var ENG_CANVAS = document.getElementById("ENG-CANVAS");
+    
+    var LEGACYMATHS = 0;
 
-    if (URLPARAMS.get('fullscreen') == "true") {
+
+    function FULLSCREEN()
+    {
         ENG_CANVAS.style.position = "fixed";
         ENG_CANVAS.style.top = "0";
         ENG_CANVAS.style.left = "0";
@@ -202,8 +227,17 @@
         ENG_CANVAS.style.zIndex = "10";
         ENG_CANVAS.style.border = "";
         ENG_CANVAS.style.borderRadius = "0px";
+        document.getElementById("ENG-VARIABLES").style.display = "none";
+        document.getElementById("ENG-FUNCTIONS").style.display = "none";
     }
 
+    //FULLSCREEN. IT JUST SCALES UP THE CANVAS.
+    if (URLPARAMS.get('fullscreen') == "true") 
+    {
+        FULLSCREEN();
+    }
+    
+    //TEMPLATING.....
     
     var HTML_VARIABLE_LIST = document.getElementById("ENG-VARIABLES");
     
@@ -238,7 +272,10 @@
     
     let ENG_AUDLIST = [];
     
+    //...UP UNTIL NOW.
     
+    
+    //EXPORTING GAME FILES
     function COMPILE() {
         var COMPILATION = [{
             COMPILED_EXEC: (ENG_EVENT_COLLECTION)
@@ -253,6 +290,7 @@
             TICKRATE: document.getElementById("ENG-TICKRATE").value
         }
     ];
+    //I WISH I REMEMBERED HOW THIS WORKS.
     var data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(COMPILATION));
     var downloader = document.getElementById("COMPILE-DOWNLOAD");
     downloader.setAttribute("href", data);
@@ -260,6 +298,8 @@
     downloader.click();
     
 }
+
+//IMPORTING GAME FILES
 
 function UPLOADCODE() {
     const READER = new FileReader();
@@ -313,17 +353,19 @@ function UPLOADCODE() {
         });
     }
 
+    //EVENTS (LIKE CLICKING, AND KEYPRESSES)
+
     var ENG_LASTKEY;
     addEventListener('keydown', function(event) {
         if (TICK_INTERVAL != null) {
             ENG_LASTKEY = event.keyCode;
-            ENG_EXCECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:KEYPRESS").CODE_DATA);
+            ENG_EXECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:KEYPRESS").CODE_DATA);
         }
     })
     addEventListener('keyup', function(event) {
         if (TICK_INTERVAL != null) {
             ENG_LASTKEY = event.keyCode;
-            ENG_EXCECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:KEYUP").CODE_DATA);
+            ENG_EXECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:KEYUP").CODE_DATA);
         }
     })
     var ENG_MOUSE_X;
@@ -343,12 +385,14 @@ function UPLOADCODE() {
     })
     addEventListener('mousedown', function(event) {
         if (TICK_INTERVAL != null) {
-            ENG_EXCECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:MOUSECLICK").CODE_DATA);
+            ENG_EXECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:MOUSECLICK").CODE_DATA);
         }
     })
 
 
     var TICK_INTERVAL;
+
+    //GAME ENGINE BASE IS RIGHT HERE!!!!
 
     function BEGINENG() {
         if (TICK_INTERVAL == null) {
@@ -357,7 +401,7 @@ function UPLOADCODE() {
             context.clearRect(0, 0, ENG_CANVAS.width, ENG_CANVAS.height);
             TICK_INTERVAL = setInterval(ENG_UPDATE_TICK, document.getElementById("ENG-TICKRATE").value);
             document.getElementById("BEGINBUTTON").style.background = 'lightgreen';
-            ENG_EXCECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:BEGIN").CODE_DATA);
+            ENG_EXECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:BEGIN").CODE_DATA);
         }
 
     }
@@ -373,11 +417,13 @@ function UPLOADCODE() {
     }
 
     function ENG_UPDATE_TICK() {
-        ENG_EXCECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:TICK").CODE_DATA);
+        ENG_EXECUTE_CODE(ENG_CODE_COLLECTION.find(item => item.CODE_ROOT == "ON:TICK").CODE_DATA);
         ENG_VARIABLE_LIST.forEach(element => {
             console.log(element);
         });
     }
+    
+    //NEW VARIABLE
 
     function ENG_NEW_VARIABLE() {
         var NAME = prompt("Enter Variable name");
@@ -387,6 +433,7 @@ function UPLOADCODE() {
         NAME = NAME.replaceAll("*", "");
         NAME = NAME.replaceAll("/", "");
         NAME = NAME.replaceAll(":", "");
+
         if (!ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME === NAME) && NAME && NAME != "") {
             var NEWOPT = document.createElement("option");
             NEWOPT.text = NAME;
@@ -400,6 +447,10 @@ function UPLOADCODE() {
             alert("Variable already exists...");
         } else if (NAME == "") {
             alert("Variable name is null");
+        }
+        if (NAME.toLowerCase() == "var" || NAME.toLowerCase() == "var_a" || NAME.toLowerCase() == "a")
+        {
+            alert("how creative..."); //I HAD TO
         }
     }
 
@@ -469,48 +520,73 @@ function UPLOADCODE() {
                 break;
         }
     }
+    
+    //THIS USED TO BE WORSE, BUT I'VE IMPROVED IT SINCE.
+
+    function DYNAMIC_TOFIXED(value, dp)
+    {
+        return +parseFloat(value).toFixed(dp);
+    }
 
     function MATHS(math) {
-        var argument;
-        argument = "";
-        if (math.includes("+")) {
-            var ARGS = math.split("+");
-            argument = "+";
+        if(LEGACYMATHS == 0)
+        {
+            let E_VAL 
+            //console.log(math);
+            try
+            {
+                E_VAL = eval(VAR_REPLACEALL(math));
+            }
+            catch (e)
+            {
+                console.log(e);
+            }
+            return DYNAMIC_TOFIXED(E_VAL, 2);
         }
-        if (math.includes("-")) {
-            var ARGS = math.split("-");
-            argument = "-";
-        }
-        if (math.includes("*")) {
-            var ARGS = math.split("*");
-            argument = "*";
-        }
-        if (math.includes("/")) {
-            var ARGS = math.split("/");
-            argument = "/";
-        }
-        if (argument == "") {
-            return VAR_CONVERT(math);
-        }
-        switch (argument) {
-            case "+":
-                return VAR_CONVERT(ARGS[0]) + VAR_CONVERT(ARGS[1]);
-                break;
-            case "-":
-                return VAR_CONVERT(ARGS[0]) - VAR_CONVERT(ARGS[1]);
-                break;
-            case "*":
-                return VAR_CONVERT(ARGS[0]) * VAR_CONVERT(ARGS[1]);
-                break;
-            case "/":
-                return VAR_CONVERT(ARGS[0]) / VAR_CONVERT(ARGS[1]);
-                break;
-            default:
-                break;
+        if(LEGACYMATHS == 1)
+        {
+            var argument;
+            argument = "";
+            if (math.includes("+")) {
+                var ARGS = math.split("+");
+                argument = "+";
+            }
+            if (math.includes("-")) {
+                var ARGS = math.split("-");
+                argument = "-";
+            }
+            if (math.includes("*")) {
+                var ARGS = math.split("*");
+                argument = "*";
+            }
+            if (math.includes("/")) {
+                var ARGS = math.split("/");
+                argument = "/";
+            }
+            if (argument == "") {
+                return VAR_CONVERT(math);
+            }
+            switch (argument) {
+                case "+":
+                    return VAR_CONVERT(ARGS[0]) + VAR_CONVERT(ARGS[1]);
+                    break;
+                case "-":
+                    return VAR_CONVERT(ARGS[0]) - VAR_CONVERT(ARGS[1]);
+                    break;
+                case "*":
+                    return VAR_CONVERT(ARGS[0]) * VAR_CONVERT(ARGS[1]);
+                    break;
+                case "/":
+                    return VAR_CONVERT(ARGS[0]) / VAR_CONVERT(ARGS[1]);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
-    function VAR_CONVERT(conv) {
+    function VAR_CONVERT(conv) 
+    {
         if (ENG_VARIABLE_LIST.includes(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == conv))) {
             return ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == conv).ENG_VAR_DATA;
         } else {
@@ -518,7 +594,39 @@ function UPLOADCODE() {
         }
     }
 
-    function ENG_EXCECUTE_CODE(code) {
+    function VAR_REPLACEALL(conv) 
+    {
+        let code = conv;
+        ENG_VARIABLE_LIST.forEach((element) =>
+        {
+            code = code.replaceAll(new RegExp("\\b"+element.ENG_VAR_NAME+"\\b", "g"), element.ENG_VAR_DATA);
+        });
+        return code;
+    }
+    
+    function CMD_GETUNTIL_SPECIFICATOR(element, type)
+    {
+        switch (type) 
+        {
+            case "var":
+                return ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))];
+                break;
+            case "event":
+                return ENG_EVENT_COLLECTION[ENG_EVENT_COLLECTION.indexOf(ENG_EVENT_COLLECTION.find(item => item.EVENT_NAME == element.substring(element.indexOf(":") + 1)))];
+                break;
+            case "varc":
+                return ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1, element.indexOf(","))))];
+                break;
+        }
+    }
+    
+    //OOOH THIS RIGHT HERE...
+    //THIS IS WHAT MAKES THE ENGINE WORK.
+    //ALL METHODS ARE HERE, SUCH AS DRAWING, INPUT, VARIABLE MANAGEMENT.........
+    //AND IT'S REALLY REALLY LONG!!!!!
+    
+
+    function ENG_EXECUTE_CODE(code) {
         let Code = String(code).replaceAll(/\s/g, '');
         const ENG_CODE_LIST = Code.split(';');
         ENG_CODE_LIST.forEach(element => {
@@ -600,8 +708,11 @@ function UPLOADCODE() {
             if (element.substring(0, element.indexOf(":")) == "Draw_Image") {
                 var args = element.split(",");
                 var context = ENG_CANVAS.getContext("2d");
-                console.log(LOADED_IMG_LIST[MATHS((element.substring(element.indexOf(":") + 1, element.indexOf(","))))]);
-                context.drawImage(LOADED_IMG_LIST[MATHS((element.substring(element.indexOf(":") + 1, element.indexOf(","))))], MATHS(args[1]), MATHS(args[2]), MATHS(args[3]), MATHS(args[4]));
+                var img = LOADED_IMG_LIST[MATHS((element.substring(element.indexOf(":") + 1, element.indexOf(","))))];
+                if(img != null)
+                {
+                    context.drawImage(img, MATHS(args[1]), MATHS(args[2]), MATHS(args[3]), MATHS(args[4]));
+                }
             }
             if (element.substring(0, element.indexOf(":")) == "Play_Audio" || element.substring(0, element.indexOf(":")) == "Play_Sound") {
                 var args = element.split(",");
@@ -623,7 +734,7 @@ function UPLOADCODE() {
                 var args = element.split(":");
                 if (CONDITION(args[1])) 
                 {
-                    ENG_EXCECUTE_CODE(element.substring(element.indexOf("{") + 1, element.lastIndexOf("}")));
+                    ENG_EXECUTE_CODE(element.substring(element.indexOf("{") + 1, element.lastIndexOf("}")));
                 }
             }
             if (element.substring(0, element.indexOf(":")) == "For")
@@ -631,34 +742,38 @@ function UPLOADCODE() {
                 var args = element.split(":");
                 for (let index = 0; index < MATHS(element.substring(element.indexOf(":") + 1, args[1])); index++) 
                 {
-                    ENG_EXCECUTE_CODE(args[2]);   
+                    ENG_EXECUTE_CODE(args[2]);
                 }
 
             }
             if (element.substring(0, element.indexOf(":")) == "Keypress") {
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA = ENG_LASTKEY;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = ENG_LASTKEY;
             }
             if (element.substring(0, element.indexOf(":")) == "Mouse_X") {
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA = ENG_MOUSE_X;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = ENG_MOUSE_X;
             }
             if (element.substring(0, element.indexOf(":")) == "Mouse_Y") {
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA = ENG_MOUSE_Y;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = ENG_MOUSE_Y;
             }
             if (element.substring(0, element.indexOf(":")) == "LocalMouse_X") {
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA = ENG_LOCMOUSE_X;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = ENG_LOCMOUSE_X;
             }
             if (element.substring(0, element.indexOf(":")) == "LocalMouse_Y") {
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA = ENG_LOCMOUSE_Y;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = ENG_LOCMOUSE_Y;
             }
             if (element.substring(0, element.indexOf(":")) == "Event_Id") {
-                ENG_EXCECUTE_CODE(ENG_EVENT_COLLECTION[MATHS(element.substring(element.indexOf(":") + 1))].EVENT_DATA);
+                ENG_EXECUTE_CODE(ENG_EVENT_COLLECTION[MATHS(element.substring(element.indexOf(":") + 1))].EVENT_DATA);
             }
             if (element.substring(0, element.indexOf(":")) == "Event") {
-                ENG_EXCECUTE_CODE(ENG_EVENT_COLLECTION[ENG_EVENT_COLLECTION.indexOf(ENG_EVENT_COLLECTION.find(item => item.EVENT_NAME == element.substring(element.indexOf(":") + 1)))].EVENT_DATA);
+                ENG_EXECUTE_CODE(CMD_GETUNTIL_SPECIFICATOR(element, "event").EVENT_DATA);
             }
             if (element.substring(0, element.indexOf(":")) == "Random") {
                 var args = element.split(",");
-                ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1, element.indexOf(","))))].ENG_VAR_DATA = Math.floor(Math.random() * parseInt(args[1]));
+                CMD_GETUNTIL_SPECIFICATOR(element, "varc").ENG_VAR_DATA = Math.floor(Math.random() * parseInt(args[1]));
+            }
+            if (element.substring(0, element.indexOf(":")) == "Round") {
+                var vardata = ENG_VARIABLE_LIST[ENG_VARIABLE_LIST.indexOf(ENG_VARIABLE_LIST.find(item => item.ENG_VAR_NAME == element.substring(element.indexOf(":") + 1)))].ENG_VAR_DATA;
+                CMD_GETUNTIL_SPECIFICATOR(element, "var").ENG_VAR_DATA = parseInt(Math.round(vardata));
             }
         });
     }
